@@ -1,0 +1,40 @@
+This is the codeboodto explain the table: Final_tidy_dataset.txt
+assignment of data to variables includes the following variables which are extracted from the following files:
+1- features from the  file: "~/data/UCI HAR Dataset/features.txt" containing 2 columns and 561 rows. This data is frome the gyroscope component of the Inertial Measurement unit IMU. 
+2- activities from the  file: "~/data/UCI HAR Dataset/activity_labels.txt", 3 columns and 6 rows:
+1    1            WALKING
+2    2   WALKING_UPSTAIRS
+3    3 WALKING_DOWNSTAIRS
+4    4            SITTING
+5    5           STANDING
+6    6             LAYING
+
+subject_test from the file: "~/data/UCI HAR Dataset/test/subject_test.txt" 2 columns and 2947 rows with 10 different categories (1:10). 
+x_test from the file:  "~/data/UCI HAR Dataset/test/x_test.txt" 2947 rows, 561 columns
+y_test  from the file: "~/data/UCI HAR Dataset/test/y_test.txt" 2947 rows and one column
+subject_train from the file: "~/data/UCI HAR Dataset/train/subject_train.txt" 7352 rows and 2 columns
+x_train from the file: "~/data/UCI HAR Dataset/train/x_train.txt" 7352 rows and 561 columns
+y_train from the file: "~/data/UCI HAR Dataset/train/y_train.txt" 7352 rows and 1 column 
+
+Merging data int one unified file is as follows:
+x_complete is created by  merging x_train x_test files.
+y_complete is created by  merging y_train, y_test files.
+subject is created by by  merging  subject_train, subject_test files.
+combined_datais formed by combining subject, x_complete and y_complete files
+
+The tidy_dataset is created by extracting the means and standard deviation values. This is stored in a file called tidy_dataset.
+Each column is gived the correct column names:
+names(tidy_dataset)[2]<- "activity"
+names(tidy_dataset)<-gsub("Acc", "Accelerometer", names(tidy_dataset))
+names(tidy_dataset)<-gsub("Gyro", "Gyroscope", names(tidy_dataset))
+names(tidy_dataset)<-gsub("BodyBody", "Body", names(tidy_dataset))
+names(tidy_dataset)<-gsub("Mag", "Magnitude", names(tidy_dataset))
+names(tidy_dataset)<-gsub("^t", "Time", names(tidy_dataset))
+names(tidy_dataset)<-gsub("^f", "Frequency", names(tidy_dataset))
+names(tidy_dataset)<-gsub("tBody", "TimeBody", names(tidy_dataset))
+names(tidy_dataset)<-gsub("-mean()", "Mean", ignore.case=TRUE)
+names(tidy_dataset)<-gsub("-sd()", "STD", ignore.case=TRUE)
+names(tidy_dataset)<-gsub("-freq()", "Frequency", ignore.case=TRUE)
+names(tidy_dataset)<-gsub("angle", "Angle", names(tidy_dataset))
+names(tidy_dataset)<-gsub("gravity", "Gravity", names(tidy_dataset))
+finally a new dataset is created with average values for each variable. This is stored in a file called Final_tidy-dataset and is saved as Final_tidy-dataset.txt
