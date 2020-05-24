@@ -29,7 +29,7 @@ subjects <- rbind(subject_train, subject_test)
 combined_data<- cbind(subjects, x_complete, y_complete)
 
 ##Secound goal: Extract only means and standard deviations from each measurment to create a tidydataset
-tidy_dataset<- combined_data %>% select(subjects, code, contains("mean"), contains("std"))
+tidy_dataset<- combined_data %>% select(subject, code, contains("Mean"), contains("std"))
 
 ## Use descriptive activity names to name activities within the dataset
 
