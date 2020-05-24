@@ -52,7 +52,7 @@ names(tidy_dataset)<-gsub("gravity", "Gravity", names(tidy_dataset))
 
 ##Create a new dataset with average values for each variable, activity and each subject
 
-step5 <- tidy_dataset %>% 
-  group_by(subjects, activity) %>%
+Final_tidy_dataset <- tidy_dataset %>% 
+  group_by(subject, activity) %>%
   summarise_all(funs(mean))
-write.table(step5, "FinalData.text", row.names =F)
+write.table(Final_tidy_dataset, "Final_tidy_dataset.txt", row.names =F)
