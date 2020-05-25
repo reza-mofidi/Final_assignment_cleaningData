@@ -1,4 +1,4 @@
-This is the codeboodto explain the table: Final_tidy_dataset.txt
+This is the codebook to explain the table: Final_tidy_dataset.txt
 assignment of data to variables includes the following variables which are extracted from the following files:
 1- features from the  file: "~/data/UCI HAR Dataset/features.txt" containing 2 columns and 561 rows. This data is frome the gyroscope component of the Inertial Measurement unit IMU. 
 2- activities from the  file: "~/data/UCI HAR Dataset/activity_labels.txt", 3 columns and 6 rows:
